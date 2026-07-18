@@ -6,16 +6,27 @@
   --font-body: "Inter", sans-serif;
   --font-hand: "Gaegu", cursive;
   --font-doodle: "Gloria Hallelujah", cursive;
+
   --color-cream: #fef9f0;
   --color-warm-50: #fef9f0;
   --color-warm-100: #fdf3e0;
   --color-warm-200: #fae3c0;
+
+  --color-key-300: #d8b4fe;
   --color-key-400: #c084fc;
   --color-key-500: #a855f7;
   --color-key-600: #9333ea;
   --color-key-700: #7e22ce;
+
   --color-ink: #1e1b2e;
   --color-ink-muted: #6b6375;
+
+  --color-card-pink: #fdf2f8;
+  --color-card-blue: #eff6ff;
+  --color-card-green: #f0fdf4;
+  --color-card-yellow: #fefce8;
+  --color-card-peach: #fff7ed;
+  --color-card-lavender: #f5f3ff;
 }
 
 * {
@@ -34,4 +45,54 @@ body {
 
 #root {
   min-height: 100svh;
+}
+
+/* Subtle background blobs */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.bg-blob-1 {
+  width: 400px;
+  height: 400px;
+  background: #e9d5ff;
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.bg-blob-2 {
+  width: 300px;
+  height: 300px;
+  background: #fde68a;
+  bottom: -80px;
+  left: -80px;
+  animation-delay: -7s;
+}
+
+.bg-blob-3 {
+  width: 250px;
+  height: 250px;
+  background: #bfdbfe;
+  top: 50%;
+  left: 50%;
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
 }

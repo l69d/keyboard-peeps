@@ -14,6 +14,7 @@ export const keyboards = [
       use: ['gaming', 'typing', 'hybrid'],
       connectivity: ['wired'],
       build: ['prebuilt'],
+      sound: ["balanced"],
     },
     description:
       'The entry-level king. Hot-swappable, QMK/VIA support, south-facing RGB, and shockingly good build quality for the price.',
@@ -32,6 +33,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wired'],
       build: ['prebuilt', 'custom'],
+      sound: ["thocky","creamy"],
     },
     description:
       'Full aluminum, gasket-mounted, and sounds incredible out of the box. The Q1 put Keychron on the enthusiast map.',
@@ -50,6 +52,7 @@ export const keyboards = [
       use: ['gaming'],
       connectivity: ['wired'],
       build: ['prebuilt'],
+      sound: ["clacky"],
     },
     description:
       'Hall-effect magnetic switches with adjustable actuation points. Rapid trigger, SOCD, and analog input. The competitive gamer\'s dream.',
@@ -68,6 +71,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wired'],
       build: ['prebuilt'],
+      sound: ["balanced"],
     },
     description:
       'Legendary build quality with hot-swap sockets, dual-layer sound dampening, and PBT dye-sub keycaps. A community staple.',
@@ -86,6 +90,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wireless'],
       build: ['prebuilt'],
+      sound: ["balanced","silent"],
     },
     description:
       'Slim, low-profile, and wireless. QMK/VIA support in a portable package that slides right into your bag next to your laptop.',
@@ -104,6 +109,7 @@ export const keyboards = [
       use: ['gaming', 'typing'],
       connectivity: ['wireless', 'wired'],
       build: ['prebuilt'],
+      sound: ["balanced"],
     },
     description:
       'The budget wireless champion. Triple-mode connectivity, hot-swappable switches, and shockingly decent for under fifty bucks.',
@@ -122,6 +128,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wired'],
       build: ['custom'],
+      sound: ["thocky","creamy"],
     },
     description:
       'Stack-mount beauty from Mode Designs. Refined acoustics, gorgeous anodization, and a typing feel that rivals boards twice the price.',
@@ -140,6 +147,7 @@ export const keyboards = [
       use: ['gaming', 'hybrid'],
       connectivity: ['wireless'],
       build: ['prebuilt'],
+      sound: ["clacky"],
     },
     description:
       'Lightspeed wireless gaming keyboard with a cloud-soft palm rest. Hot-swappable, fun colorways, and excellent battery life.',
@@ -158,6 +166,7 @@ export const keyboards = [
       use: ['typing'],
       connectivity: ['wired'],
       build: ['prebuilt', 'custom'],
+      sound: ["balanced"],
     },
     description:
       'The gateway to ortholinear. 40% layout, fully programmable, hot-swappable, and weird in the best way. Your wrists will thank you.',
@@ -176,6 +185,7 @@ export const keyboards = [
       use: ['typing'],
       connectivity: ['wired'],
       build: ['custom'],
+      sound: ["creamy"],
     },
     description:
       'A 40% with a left numpad because rules are meant to be broken. Gasket-mounted, brass weight, and absolutely adorable.',
@@ -194,6 +204,7 @@ export const keyboards = [
       use: ['typing'],
       connectivity: ['wired'],
       build: ['prebuilt'],
+      sound: ["thocky"],
     },
     description:
       'Topre switches. Need we say more? The FC660C is the platonic ideal of a typing keyboard — silent, refined, and utterly addictive.',
@@ -212,6 +223,7 @@ export const keyboards = [
       use: ['gaming'],
       connectivity: ['wired'],
       build: ['prebuilt'],
+      sound: ["clacky"],
     },
     description:
       'Razer\'s analog optical switches with rapid trigger and adjustable actuation. RGB that syncs with everything. Pure gaming performance.',
@@ -230,6 +242,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wireless'],
       build: ['prebuilt'],
+      sound: ["creamy"],
     },
     description:
       'A 75% with a volume knob, triple-mode wireless, and gasket mounting — at a budget price. One of the best value plays in the game.',
@@ -248,6 +261,7 @@ export const keyboards = [
       use: ['typing'],
       connectivity: ['wireless', 'wired'],
       build: ['prebuilt'],
+      sound: ["balanced","silent"],
     },
     description:
       'The ergonomic endgame. Split, contoured, column-staggered, and fully programmable. If your wrists hurt, this is the one.',
@@ -266,6 +280,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wireless'],
       build: ['custom'],
+      sound: ["creamy"],
     },
     description:
       'A gasket-mounted, wireless, hot-swappable barebones kit for the price of a nice dinner. The perfect entry point into custom builds.',
@@ -284,6 +299,7 @@ export const keyboards = [
       use: ['typing', 'hybrid'],
       connectivity: ['wired', 'wireless'],
       build: ['custom'],
+      sound: ["thocky","creamy","marbly"],
     },
     description:
       'Optional LCD screen, magnetic badge system, and a gorgeous gasket-mounted aluminum case. The most fun you can have building a 75%.',
