@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gloria+Hallelujah&family=Inter:wght@400;500;600;700&family=Radio+Canada+Big:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Radio Canada Big", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-hand: "Gaegu", cursive;
+  --font-doodle: "Gloria Hallelujah", cursive;
+  --color-cream: #fef9f0;
+  --color-warm-50: #fef9f0;
+  --color-warm-100: #fdf3e0;
+  --color-warm-200: #fae3c0;
+  --color-key-400: #c084fc;
+  --color-key-500: #a855f7;
+  --color-key-600: #9333ea;
+  --color-key-700: #7e22ce;
+  --color-ink: #1e1b2e;
+  --color-ink-muted: #6b6375;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+#root {
+  min-height: 100svh;
+}

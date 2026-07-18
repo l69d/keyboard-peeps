@@ -1,0 +1,201 @@
+// Questions for the keyboard selector quiz
+// Each answer maps to tags that match against keyboard profiles
+
+export const questions = [
+  {
+    id: 'size',
+    question: "What size keyboard do you prefer?",
+    subtitle: "From full-sized battleships to tiny keebs",
+    options: [
+      {
+        id: 'full',
+        label: 'Full-size (100%)',
+        description: 'Got the numpad, got it all',
+        tags: { size: 'full' },
+        emoji: '🏢',
+      },
+      {
+        id: 'tkl',
+        label: 'TKL (80%)',
+        description: 'No numpad, more desk space',
+        tags: { size: 'tkl' },
+        emoji: '🖥️',
+      },
+      {
+        id: '75',
+        label: '75%',
+        description: 'Compact but keeps the F-row',
+        tags: { size: '75%' },
+        emoji: '⌨️',
+      },
+      {
+        id: '65',
+        label: '65%',
+        description: 'Arrows + a few nav keys',
+        tags: { size: '65%' },
+        emoji: '🎯',
+      },
+      {
+        id: '60',
+        label: '60%',
+        description: 'Minimal. No arrows, no F-row, no distractions',
+        tags: { size: '60%' },
+        emoji: '⚡',
+      },
+      {
+        id: '40',
+        label: '40% / Ortho',
+        description: 'Tiny and weird. Layers are your friend',
+        tags: { size: '40%' },
+        emoji: '🔮',
+      },
+    ],
+  },
+  {
+    id: 'switch',
+    question: 'What kind of switch feel do you want?',
+    subtitle: 'The heart of the typing experience',
+    options: [
+      {
+        id: 'linear',
+        label: 'Linear',
+        description: 'Smooth all the way down. No bump, no click. Gamer favorite.',
+        tags: { switch: 'linear' },
+        emoji: '🧈',
+      },
+      {
+        id: 'tactile',
+        label: 'Tactile',
+        description: 'A satisfying bump at actuation. Typist heaven.',
+        tags: { switch: 'tactile' },
+        emoji: '🤌',
+      },
+      {
+        id: 'clicky',
+        label: 'Clicky',
+        description: 'Loud, proud, and clicky. Your coworkers will love you (maybe not).',
+        tags: { switch: 'clicky' },
+        emoji: '🎵',
+      },
+    ],
+  },
+  {
+    id: 'budget',
+    question: "What's your budget?",
+    subtitle: 'Keebs come in all price ranges',
+    options: [
+      {
+        id: 'budget',
+        label: 'Budget',
+        description: 'Under $100 — great value, solid builds',
+        tags: { budget: 'budget' },
+        emoji: '💸',
+      },
+      {
+        id: 'mid',
+        label: 'Mid-range',
+        description: '$100 – $200 — where the sweet spot lives',
+        tags: { budget: 'mid' },
+        emoji: '💰',
+      },
+      {
+        id: 'premium',
+        label: 'Premium',
+        description: '$200 – $400 — aluminum, gaskets, the good stuff',
+        tags: { budget: 'premium' },
+        emoji: '✨',
+      },
+      {
+        id: 'enthusiast',
+        label: 'Enthusiast',
+        description: '$400+ — group buys, limited runs, endgame territory',
+        tags: { budget: 'enthusiast' },
+        emoji: '👑',
+      },
+    ],
+  },
+  {
+    id: 'use',
+    question: "What's your primary use case?",
+    subtitle: 'Different strokes for different folks',
+    options: [
+      {
+        id: 'gaming',
+        label: 'Gaming',
+        description: 'Fast actuation, high polling rates, RGB optional but encouraged',
+        tags: { use: 'gaming' },
+        emoji: '🎮',
+      },
+      {
+        id: 'typing',
+        label: 'Typing & Programming',
+        description: 'All-day comfort, good tactility, ergonomics matter',
+        tags: { use: 'typing' },
+        emoji: '💻',
+      },
+      {
+        id: 'hybrid',
+        label: 'A bit of both',
+        description: 'Gaming by night, coding by day — need versatility',
+        tags: { use: 'hybrid' },
+        emoji: '🔄',
+      },
+    ],
+  },
+  {
+    id: 'connectivity',
+    question: 'Wired or wireless?',
+    subtitle: 'Freedom vs. reliability',
+    options: [
+      {
+        id: 'wired',
+        label: 'Wired',
+        description: 'Zero latency, no charging, pure performance',
+        tags: { connectivity: 'wired' },
+        emoji: '🔌',
+      },
+      {
+        id: 'wireless',
+        label: 'Wireless',
+        description: 'Bluetooth + 2.4GHz. Clean desk, no cables',
+        tags: { connectivity: 'wireless' },
+        emoji: '📡',
+      },
+      {
+        id: 'either',
+        label: "Don't mind either",
+        description: 'Surprise me',
+        tags: { connectivity: 'either' },
+        emoji: '🤷',
+      },
+    ],
+  },
+  {
+    id: 'build',
+    question: 'Pre-built or custom?',
+    subtitle: 'Ready out of the box, or build it yourself?',
+    options: [
+      {
+        id: 'prebuilt',
+        label: 'Pre-built',
+        description: 'Unbox, plug in, start typing. No assembly required.',
+        tags: { build: 'prebuilt' },
+        emoji: '📦',
+      },
+      {
+        id: 'custom',
+        label: 'Custom / DIY',
+        description: 'Pick every part. Case, PCB, plate, switches, keycaps — yours to choose.',
+        tags: { build: 'custom' },
+        emoji: '🛠️',
+      },
+      {
+        id: 'either',
+        label: 'Open to both',
+        description: 'Show me options from both worlds',
+        tags: { build: 'either' },
+        emoji: '🌍',
+      },
+    ],
+  },
+];
