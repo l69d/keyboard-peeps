@@ -6,13 +6,26 @@ const FILTER_GROUPS = [
   { cat: 'size', label: 'Size', options: ['full', 'tkl', '75%', '65%', '60%', '40%'] },
   { cat: 'switch', label: 'Switch feel', options: ['linear', 'tactile', 'clicky'] },
   { cat: 'budget', label: 'Budget', options: ['budget', 'mid', 'premium', 'enthusiast'] },
+  { cat: 'use', label: 'Use', options: ['gaming', 'typing', 'hybrid'] },
   { cat: 'connectivity', label: 'Connection', options: ['wired', 'wireless'] },
+  { cat: 'build', label: 'Build', options: ['prebuilt', 'custom'] },
   { cat: 'sound', label: 'Sound', options: ['thocky', 'creamy', 'clacky', 'balanced', 'silent', 'marbly'] },
 ];
 
 const sizeIcons = { full: '🏢', tkl: '🖥️', '75%': '⌨️', '65%': '🎯', '60%': '⚡', '40%': '🔮' };
 const switchIcons = { linear: '🧈', tactile: '🤌', clicky: '🎵' };
-const soundIcons = { thocky: '🌧️', creamy: '🧈', clacky: '🎵', balanced: '⚖️', silent: '🤫', marbly: '🪨' };
+const soundIcons = { thocky: '🌧️', creamy: '🥛', clacky: '🔔', balanced: '⚖️', silent: '🤫', marbly: '🪨' };
+const useIcons = { gaming: '🎮', typing: '💻', hybrid: '🔄' };
+const buildIcons = { prebuilt: '📦', custom: '🛠️' };
+
+function getIcon(cat, val) {
+  if (cat === 'size') return sizeIcons[val] || '';
+  if (cat === 'switch') return switchIcons[val] || '';
+  if (cat === 'sound') return soundIcons[val] || '';
+  if (cat === 'use') return useIcons[val] || '';
+  if (cat === 'build') return buildIcons[val] || '';
+  return '';
+}
 
 export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
   const [activeFilters, setActiveFilters] = useState({});
@@ -47,34 +60,34 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
   const hasFilters = Object.keys(activeFilters).length > 0;
 
   return (
-    <motion.div className="min-h-svh" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className="max-w-6xl mx-auto px-4 py-5">
+    <motion.div className="min-h-svh flex flex-col items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-8">
         {/* Top bar — grid for true centering */}
-        <div className="grid grid-cols-3 items-center mb-4">
+        <div className="grid grid-cols-3 items-center mb-6">
           <div>
             <button
               onClick={onBack}
-              className="inline-flex items-center gap-1.5 text-ink-muted hover:text-ink font-body text-sm
-                         transition-colors cursor-pointer px-2.5 py-1.5 rounded-lg hover:bg-white/60"
+              className="inline-flex items-center gap-2 text-ink-muted hover:text-ink font-body text-base
+                         transition-colors cursor-pointer px-3 py-2 rounded-lg hover:bg-white/60"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
               Back
             </button>
           </div>
-          <span className="font-hand text-xl text-key-400 text-center">key peeps</span>
+          <span className="font-hand text-2xl text-key-400 text-center">key peeps</span>
           <div />
         </div>
 
-        <h1 className="font-display text-2xl font-bold text-ink mb-4 text-center">Browse keyboards</h1>
+        <h1 className="font-display text-2xl font-bold text-ink mb-6 text-center">Browse keyboards</h1>
 
         {/* Filters — consistent padding */}
-        <div className="mb-4 p-4 bg-white rounded-2xl shadow-sm ring-1 ring-black/5">
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5">
+        <div className="mb-6 p-5 sm:p-6 bg-white rounded-2xl shadow-sm ring-1 ring-black/5">
+          <div className="flex flex-col items-center gap-y-3 sm:gap-y-4">
             {FILTER_GROUPS.map(({ cat, label, options }) => (
-              <div key={cat} className="flex items-center gap-1.5">
-                <span className="text-xs font-semibold text-ink-muted uppercase tracking-wider shrink-0">
+              <div key={cat} className="w-full flex items-center gap-x-2.5 gap-y-1.5 flex-wrap justify-center">
+                <span className="text-sm font-semibold text-ink-muted uppercase tracking-wider shrink-0">
                   {label}
                 </span>
                 {options.map((opt) => {
@@ -83,22 +96,22 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
                     <button
                       key={opt}
                       onClick={() => toggleFilter(cat, opt)}
-                      className={`px-2.5 py-1 rounded-full text-xs font-body transition-all duration-200 cursor-pointer whitespace-nowrap
+                      className={`px-3 py-1.5 rounded-full text-sm font-body transition-all duration-200 cursor-pointer whitespace-nowrap
                         ${isActive
                           ? 'bg-key-500 text-white shadow-sm shadow-key-500/20'
                           : 'bg-warm-50 text-ink-muted hover:bg-warm-100 hover:text-ink'
                         }`}
                     >
-                      {soundIcons[opt] ? `${soundIcons[opt]} ` : ''}{opt}
+                      {getIcon(cat, opt) ? `${getIcon(cat, opt)} ` : ''}{opt}
                     </button>
                   );
                 })}
               </div>
             ))}
-            {hasFilters && (
+            {hasFilters && filtered.length > 0 && (
               <button
                 onClick={() => setActiveFilters({})}
-                className="text-xs text-key-500 font-body hover:underline cursor-pointer shrink-0"
+                className="text-xs text-key-500 font-body hover:underline cursor-pointer shrink-0 mt-1"
               >
                 Clear all
               </button>
@@ -106,12 +119,12 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
           </div>
         </div>
 
-        <p className="text-sm text-ink-muted font-body mb-4 text-center" role="status" aria-live="polite">
+        <p className="text-sm text-ink-muted font-body mb-6 text-center" role="status" aria-live="polite">
           {filtered.length} keyboard{filtered.length !== 1 ? 's' : ''}{hasFilters ? (filtered.length === 1 ? ' matches' : ' match') : ' total'}
         </p>
 
         {/* Keyboard grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
             {filtered.map((kb) => (
               <motion.a
@@ -124,7 +137,7 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="group block bg-white rounded-2xl p-5 shadow-sm ring-1 ring-black/5 overflow-hidden
+                className="group block bg-white rounded-2xl p-6 md:p-8 shadow-sm ring-1 ring-black/5 overflow-hidden
                            hover:shadow-lg hover:-translate-y-0.5 hover:ring-purple-200/30
                            transition-all duration-200 cursor-pointer no-underline"
               >
@@ -132,7 +145,7 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="text-2xl shrink-0">{sizeIcons[kb.tags.size[0]] || '⌨️'}</span>
                     <div className="min-w-0">
-                      <h3 className="font-display font-bold text-lg text-ink group-hover:text-key-600 transition-colors truncate">
+                      <h3 className="font-display font-bold text-lg text-ink group-hover:text-key-600 transition-colors truncate" title={kb.name}>
                         {kb.name}
                       </h3>
                       <p className="text-xs text-ink-muted font-body">{kb.brand}</p>
@@ -141,13 +154,13 @@ export default function BrowseKeyboards({ onBack, initialSoundFilter }) {
                   <span className="font-display font-bold text-xl text-key-500 shrink-0 ml-3">{kb.price}</span>
                 </div>
 
-                <p className="text-sm text-ink-muted font-body leading-relaxed mb-3">
+                <p className="text-sm text-ink-muted font-body leading-relaxed mb-3 line-clamp-3">
                   {kb.description}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {kb.highlights.slice(0, 3).map((h) => (
-                    <span key={h} className="px-2 py-0.5 bg-warm-50 text-ink-muted rounded-md text-xs font-body">
+                    <span key={h} className="px-2 py-0.5 bg-warm-100 text-ink-muted rounded-md text-xs font-body">
                       {h}
                     </span>
                   ))}

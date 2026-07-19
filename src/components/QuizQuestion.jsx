@@ -39,7 +39,7 @@ export default function QuizQuestion({ question, onSelect, direction }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: direction * -30 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="w-full max-w-xl mx-auto px-4"
+      className="w-full max-w-3xl mx-auto px-4 sm:px-6"
     >
       {/* Question text */}
       <div className="text-center mb-6">
@@ -63,7 +63,7 @@ export default function QuizQuestion({ question, onSelect, direction }) {
 
       {/* Options — single column, wide cards */}
       <motion.div
-        className="flex flex-col gap-3"
+        className="flex flex-col gap-4"
         variants={container}
         initial="hidden"
         animate="show"
@@ -79,7 +79,7 @@ export default function QuizQuestion({ question, onSelect, direction }) {
               onClick={() => onSelect(option)}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
-              className={`group relative text-left p-5 rounded-2xl cursor-pointer overflow-hidden
+              className={`group relative text-left p-6 rounded-2xl cursor-pointer overflow-hidden
                 transition-all duration-250 ease-out
                 ${cardColors[i % cardColors.length]}
                 ${isOtherHovered ? 'opacity-35 scale-[0.98]' : ''}

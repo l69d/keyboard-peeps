@@ -99,13 +99,13 @@ export default function HomeScreen({ onNavigate }) {
               initial="hidden"
               animate="show"
               onClick={() => onNavigate(opt.id)}
-              className="group relative flex flex-col items-center text-center p-6 rounded-2xl overflow-hidden
+              className="group relative flex flex-col items-center text-center p-7 rounded-2xl overflow-hidden
                          bg-white shadow-md shadow-black/3 ring-1 ring-black/5
                          hover:shadow-xl hover:shadow-purple-200/20 hover:-translate-y-1
                          hover:ring-purple-300/30 transition-all duration-300 cursor-pointer"
             >
               <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${opt.color} opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
+                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${opt.color} opacity-[0.03] group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
               />
 
               <div className="relative z-10">
@@ -116,13 +116,13 @@ export default function HomeScreen({ onNavigate }) {
                   {opt.emoji}
                 </div>
 
-                <p className="text-[11px] font-bold text-key-500 font-body uppercase tracking-wider mb-0.5">
+                <p className="text-xs font-bold text-key-500 font-body uppercase tracking-wider mb-0.5">
                   {opt.subtitle}
                 </p>
                 <h2 className="font-display font-bold text-xl text-ink mb-1.5 group-hover:text-key-600 transition-colors">
                   {opt.title}
                 </h2>
-                <p className="text-sm text-ink-muted font-body leading-snug mb-5 max-w-60 mx-auto">
+                <p className="text-sm text-ink-muted font-body leading-snug mb-5 max-w-60 mx-auto min-h-[2.5rem]">
                   {opt.description}
                 </p>
 

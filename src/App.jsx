@@ -100,22 +100,21 @@ export default function App() {
 
         {screen === 'quiz' && (
           <div className="min-h-svh flex flex-col">
-            <div className="pt-4 pb-1 px-4">
+            <div className="pt-6 sm:pt-8 pb-1 px-4 sm:px-6">
               <div className="max-w-3xl mx-auto">
-                <div className="flex items-center justify-between mb-2">
+                <div className="relative flex items-center justify-center mb-2">
                   <button
                     onClick={currentQ === 0 ? goHome : handleBack}
-                    className="inline-flex items-center gap-1.5 text-ink-muted hover:text-ink font-body text-sm
-                               transition-colors cursor-pointer px-2.5 py-1.5 rounded-lg hover:bg-white/60"
+                    className="absolute left-0 inline-flex items-center gap-2 text-ink-muted hover:text-ink font-body text-base
+                               transition-colors cursor-pointer px-3 py-2 rounded-lg hover:bg-white/60"
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                       strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                     {currentQ === 0 ? 'Exit' : 'Back'}
                   </button>
-                  <span className="font-hand text-xl text-key-400">key peeps</span>
-                  <div className="w-14" />
+                  <span className="font-hand text-2xl text-key-400">key peeps</span>
                 </div>
                 <ProgressBar current={currentQ} total={questions.length} />
               </div>

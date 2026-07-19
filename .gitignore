@@ -26,3 +26,4 @@ dist-ssr
 screenshots/
 screenshot.cjs
 screenshot-v2.cjs
+.playwright-mcp/

@@ -23,7 +23,7 @@ export function scoreKeyboards(answers) {
 
   if (dimensions.length === 0) {
     // No criteria — return top keyboards by some default ordering
-    return keyboards.slice(0, 3).map((k) => ({ ...k, score: 0, matchedOn: [] }));
+    return keyboards.slice(0, 3).map((k) => ({ ...k, score: 0, matchedOn: [], maxScore: 0 }));
   }
 
   const scored = keyboards.map((kb) => {

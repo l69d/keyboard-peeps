@@ -15,9 +15,11 @@ const cardAccents = [
 
 function MatchDot({ matched, dim }) {
   return (
-    <div className="flex items-center gap-1.5" title={dimensionLabel(dim)}>
-      <div className={`w-2 h-2 rounded-full ${matched ? 'bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.5)]' : 'bg-warm-200'}`} />
-      <span className={`text-xs font-body ${matched ? 'text-ink' : 'text-ink-muted/40'}`}>
+    <div className="flex items-center gap-1.5" role="img" aria-label={matched ? `Matched: ${dimensionLabel(dim)}` : `Not matched: ${dimensionLabel(dim)}`} title={matched ? `Matched on ${dimensionLabel(dim)}` : `Did not match ${dimensionLabel(dim)}`}>
+      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${matched ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]' : 'bg-warm-200'}`}>
+        {matched && <span className="text-white text-[8px] font-bold">&#10003;</span>}
+      </div>
+      <span className={`text-xs font-body ${matched ? 'text-ink font-medium' : 'text-ink-muted/70'}`}>
         {dimensionLabel(dim)}
       </span>
     </div>
@@ -31,8 +33,8 @@ export default function Results({ keyboards, answers, onRestart, onHome }) {
     .filter((d, i, arr) => arr.indexOf(d) === i);
 
   return (
-    <motion.div className="min-h-svh px-4 py-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className="max-w-4xl mx-auto relative z-10">
+    <motion.div className="min-h-svh flex flex-col items-center px-4 sm:px-6 pt-6 sm:pt-8 pb-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div className="max-w-3xl mx-auto w-full relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
           <motion.div
@@ -63,7 +65,7 @@ export default function Results({ keyboards, answers, onRestart, onHome }) {
         </div>
 
         {/* Cards — vertical stack, all same width */}
-        <div className="flex flex-col gap-4 mb-8">
+        <div className="flex flex-col gap-y-6 mb-10">
           {top3.map((kb, i) => (
             <motion.a
               key={kb.id}
@@ -95,7 +97,7 @@ export default function Results({ keyboards, answers, onRestart, onHome }) {
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-2xl font-display font-bold text-key-500">{kb.price}</p>
-                  <p className="text-[10px] text-ink-muted font-body">approx</p>
+                  <p className="text-xs text-ink-muted font-body">approx</p>
                 </div>
               </div>
 
@@ -120,16 +122,16 @@ export default function Results({ keyboards, answers, onRestart, onHome }) {
 
         {/* Actions */}
         <motion.div
-          className="flex justify-center gap-3 flex-wrap"
+          className="flex justify-center gap-3 flex-wrap mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
           <motion.button
             onClick={onRestart}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-2xl text-ink-muted
-                       font-body text-sm shadow-sm ring-1 ring-black/5 hover:ring-key-400/40 hover:text-key-600
-                       hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-key-500 text-white rounded-2xl
+                       font-body text-sm shadow-lg shadow-key-500/25 hover:bg-key-600
+                       hover:shadow-xl hover:shadow-key-500/30 transition-all duration-200 active:scale-95 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -141,9 +143,9 @@ export default function Results({ keyboards, answers, onRestart, onHome }) {
           </motion.button>
           <motion.button
             onClick={onHome}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-key-500 text-white rounded-2xl
-                       font-body text-sm shadow-lg shadow-key-500/25 hover:bg-key-600
-                       hover:shadow-xl hover:shadow-key-500/30 transition-all duration-200 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-2xl text-ink-muted
+                       font-body text-sm shadow-sm ring-1 ring-black/5 hover:ring-key-400/40 hover:text-key-600
+                       hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
